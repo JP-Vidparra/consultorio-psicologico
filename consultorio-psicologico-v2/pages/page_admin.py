@@ -28,7 +28,7 @@ def _usuarios():
     st.subheader("Usuarios del Sistema")
     col_new, _ = st.columns([1, 3])
     with col_new:
-        if st.button("➕ Nuevo Usuario", width='stretch'):
+        if st.button("➕ Nuevo Usuario", use_container_width=True):
             st.session_state["crear_usuario"] = True
 
     if st.session_state.get("crear_usuario"):
@@ -195,5 +195,5 @@ def _actividad():
         data.append({"Nombre": u.nombre, "Rol": ROLE_LABELS.get(u.rol.value, u.rol.value),
                      "Email": u.email, "Citas": n_citas})
     if data:
-        st.dataframe(pd.DataFrame(data), width='stretch', hide_index=True)
+        st.dataframe(pd.DataFrame(data), use_container_width=True, hide_index=True)
     db.close()

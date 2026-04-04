@@ -35,7 +35,7 @@ def login_screen():
         password = st.text_input("🔒 Contraseña", type="password", placeholder="••••••••")
         st.markdown("<br>", unsafe_allow_html=True)
 
-        if st.button("Ingresar →", width='stretch', type="primary"):
+        if st.button("Ingresar →", use_container_width=True, type="primary"):
             db = SessionLocal()
             user = db.query(Usuario).filter(
                 Usuario.email == email.strip().lower(),
